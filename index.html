@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>أنا آسف</title>
     <style>
-        /* استدعاء خط عربي أنيق */
+        /* استدعاء خط عربي عصري ومميز */
         @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap');
 
         body {
             margin: 0;
             padding: 0;
             font-family: 'Cairo', sans-serif;
-            background-color: #fdf2f8; /* لون خلفية هادي ومريح */
+            background: linear-gradient(135deg, #fdf2f8 0%, #fae8ff 100%); /* خلفية متدرجة ناعمة وأنيقة */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -23,85 +23,90 @@
 
         .container {
             text-align: center;
-            background: white;
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            max-width: 500px;
+            background: rgba(255, 255, 255, 0.95); /* خلفية بيضاء شفافة قليلاً */
+            padding: 60px 40px;
+            border-radius: 30px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1); /* ظل ناعم وعميق */
+            max-width: 550px;
             width: 90%;
             z-index: 10;
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         h1 {
-            font-size: 2rem;
-            margin-bottom: 30px;
-            color: #db2777; 
+            font-size: 2.2rem;
+            margin-bottom: 40px;
+            color: #be185d; /* لون وردي داكن وجذاب */
+            font-weight: 700;
         }
 
         .buttons {
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 25px;
             position: relative;
-            height: 50px;
+            height: 60px;
+            margin-top: 20px;
         }
 
         button {
-            padding: 10px 30px;
-            font-size: 1.2rem;
+            padding: 12px 40px;
+            font-size: 1.3rem;
             font-family: 'Cairo', sans-serif;
             font-weight: bold;
             border: none;
-            border-radius: 10px;
+            border-radius: 15px;
             cursor: pointer;
-            transition: transform 0.2s, background-color 0.3s;
+            transition: all 0.3s ease; /* حركات ناعمة */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
         }
 
         #yesBtn {
-            background-color: #db2777;
+            background-color: #db2777; /* وردي أساسي */
             color: white;
         }
 
         #yesBtn:hover {
             background-color: #be185d;
             transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(219, 39, 119, 0.3);
         }
 
         #noBtn {
-            background-color: #e5e7eb;
+            background-color: #f3f4f6; /* رمادي فاتح جداً */
             color: #4b5563;
-            position: absolute; /* عشان نقدر نحركه بحرية في الشاشة */
-            transition: left 0.2s ease, top 0.2s ease;
+            position: absolute;
+            transition: left 0.2s ease, top 0.2s ease, background-color 0.3s;
         }
 
         #messagePhase {
-            display: none; /* مخفي في البداية */
+            display: none;
         }
 
         .message-text {
-            font-size: 1.2rem;
-            line-height: 1.8;
+            font-size: 1.25rem;
+            line-height: 1.9;
             color: #374151;
             font-weight: 600;
         }
 
         .heart {
             color: #db2777;
-            font-size: 3rem;
-            margin-bottom: 15px;
-            animation: heartbeat 1.5s infinite;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            animation: heartbeat 1.3s infinite;
         }
 
         @keyframes heartbeat {
             0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.2); }
+            50% { transform: scale(1.15); }
         }
     </style>
 </head>
 <body>
 
     <div class="container" id="mainContainer">
-        <!-- شاشة السؤال -->
+        <!-- شاشة السؤال بتصميم عصري -->
         <div id="questionPhase">
             <h1>أنا آسف.. ممكن تسامحيني؟ 🥺</h1>
             <div class="buttons">
@@ -110,7 +115,7 @@
             </div>
         </div>
 
-        <!-- شاشة الرسالة بعد ما تضغط أيوة -->
+        <!-- شاشة الرسالة بتصميم متناسق -->
         <div id="messagePhase">
             <div class="heart">❤️</div>
             <div class="message-text">
@@ -127,9 +132,8 @@
         const questionPhase = document.getElementById('questionPhase');
         const messagePhase = document.getElementById('messagePhase');
 
-        // كود تحريك زرار "لا" لما الماوس ييجي عليه
+        // كود تحريك زرار "لا" الذكي
         noBtn.addEventListener('mouseover', () => {
-            // حساب أبعاد الشاشة عشان الزرار ميهربش براها
             const x = Math.random() * (window.innerWidth - noBtn.offsetWidth - 50);
             const y = Math.random() * (window.innerHeight - noBtn.offsetHeight - 50);
             
@@ -139,7 +143,7 @@
             noBtn.style.right = 'auto';
         });
 
-        // كود إظهار الرسالة لما تضغط "أيوة"
+        // كود إظهار الرسالة النهائية
         yesBtn.addEventListener('click', () => {
             questionPhase.style.display = 'none';
             messagePhase.style.display = 'block';
